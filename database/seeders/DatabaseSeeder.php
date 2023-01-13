@@ -62,12 +62,13 @@ class DatabaseSeeder extends Seeder
 //        $user->assignRole($communicationRole);
 
 //
-        $defaultPermissions = ['lead-management', 'create-admin'];
+        $defaultPermissions = ['lead-management', 'create-admin', 'user-management'];
         foreach ($defaultPermissions as $permission){
             Permission::create(['name' => $permission]);
         }
 
         $this->create_role_with_user('Super Admin', 'Super Admin', 'super-admin@lms.test');
+        $this->create_role_with_user('User Management', 'User Management', 'user-management@lms.test');
         $teacher = $this->create_role_with_user('Teacher', 'Teacher', 'teacher@lms.test');
         $this->create_role_with_user('Communication', 'Communication Team', 'communication@lms.test');
         $this->create_role_with_user('Leads', 'Leads', 'leads@lms.test');
@@ -103,6 +104,8 @@ class DatabaseSeeder extends Seeder
             $role->givePermissionTo(Permission::all());
         }elseif ($type == 'Leads'){
             $role->givePermissionTo('lead-management');
+        }elseif ($type == 'User Management'){
+            $role->givePermissionTo(Permission::all());
         }
         $user->assignRole($role);
         return $user;
