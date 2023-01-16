@@ -82,6 +82,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'Laravel is a free and open-source PHP web framework, created by Taylor Otwell and intended for the development of web applications following the model–view–controller architectural pattern and based on Symfony.',
             'image' => 'https://source.unsplash.com/N5bT5RctFZ8',
             'user_id' => $teacher->id,
+            'price' => 500
         ]);
 
         // create curriculum

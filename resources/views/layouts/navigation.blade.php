@@ -16,10 +16,18 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                     @can('lead-management')
-                    <x-nav-link :href="route('lead.index')" :active="request()->routeIs('lead.index ')">
+                    <x-nav-link :href="route('lead.index')" :active="request()->routeIs('lead.index')">
                         {{ __('Leads') }}
                     </x-nav-link>
                     @endcan
+{{--                    @can('lead-management')--}}
+                        <x-nav-link :href="route('admission')" :active="request()->routeIs('admission')">
+                            {{ __('Admission') }}
+                        </x-nav-link>
+{{--                    @endcan--}}
+                    <x-nav-link :href="route('invoice-index')" :active="request()->routeIs('invoice-index')">
+                        {{ __('Invoices') }}
+                    </x-nav-link>
                 </div>
             </div>
 
