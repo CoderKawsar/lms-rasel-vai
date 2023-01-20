@@ -79,8 +79,10 @@ class DatabaseSeeder extends Seeder
         // create course
         $course = Course::create([
             'name' => 'Laravel',
+            'slug' => 'laravel',
             'description' => 'Laravel is a free and open-source PHP web framework, created by Taylor Otwell and intended for the development of web applications following the model–view–controller architectural pattern and based on Symfony.',
             'image' => 'https://source.unsplash.com/N5bT5RctFZ8',
+            'end_date' => date('Y-m-d', strtotime("+6 months", strtotime(date('Y-m-d')))),
             'user_id' => $teacher->id,
             'price' => 500
         ]);

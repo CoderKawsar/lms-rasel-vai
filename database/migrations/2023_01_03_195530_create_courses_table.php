@@ -16,9 +16,11 @@ return new class extends Migration
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('slug');
             $table->text('description');
-            $table->string('image');
+            $table->string('image')->default('https://source.unsplash.com/f77Bh3inUpE');
             $table->float('price')->default(0);
+            $table->date('end_date')->nullable();
             $table->unsignedBigInteger('user_id');
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

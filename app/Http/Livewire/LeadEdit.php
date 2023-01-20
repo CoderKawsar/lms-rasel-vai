@@ -55,10 +55,15 @@ class LeadEdit extends Component
     }
 
     public function addNote(){
-        $note = new Note();
-        $note->description = $this->note;
-        $note->lead_id = $this->lead_id;
-        $note->save();
+//        $note = new Note();
+//        $note->description = $this->note;
+//        $note->save();
+        $note = Note::create([
+            'description' => $this->note
+        ]);
+
+        $lead = Lead::findOrFail($this->lead_id);
+        $lead->notes()->attach($note->id);
 
         $this->note = '';
         flash()->addSuccess('Note Added Successfully');

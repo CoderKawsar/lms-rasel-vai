@@ -50,4 +50,8 @@ class User extends Authenticatable
     public function courses(){
         return $this->belongsToMany(Course::class, 'course_student', 'user_id', 'course_id');
     }
+
+    public function isPresentInClass($curriculum_id){
+        return Attendance::where('user_id', $this->id)->where('curriculum_id', $curriculum_id)->exists();
+    }
 }

@@ -10,8 +10,20 @@ class Curriculum extends Model
     protected $table = 'curriculums';
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'week_day',
+        'end_date',
+        'class_time',
+        'course_id'
+    ];
+
     public function notes(){
-        return $this->hasMany(Note::class);
+        return $this->belongsToMany(Note::class, 'curriculum_note');
+    }
+
+    public function course(){
+        return $this->belongsTo(Course::class);
     }
 
     public function homeworks(){
@@ -19,6 +31,10 @@ class Curriculum extends Model
     }
 
     public function attendences(){
-        return $this->hasMany(Attendence::class);
+        return $this->hasMany(Attendance::class);
+    }
+
+    public function presentStudents(){
+        return Attendance::where('curriculum_id', $this->id)->count();
     }
 }
