@@ -9,6 +9,8 @@ use \App\Http\Controllers\AdmissionController;
 use \App\Http\Controllers\InvoiceController;
 use \App\Http\Controllers\CourseController;
 use \App\Http\Controllers\CurriculumController;
+use \App\Http\Controllers\QuestionController;
+use \App\Http\Controllers\QuizController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +46,10 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('course', CourseController::class);
     Route::resource('class', CurriculumController::class);
+
+    Route::resource('question', QuestionController::class);
+    Route::resource('quiz', QuizController::class);
+    Route::get('/quiz/show/{id}', [QuizController::class, 'quizShow'])->name('quiz-show');
 });
 
 require __DIR__.'/auth.php';
