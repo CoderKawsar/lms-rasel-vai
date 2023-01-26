@@ -8,3 +8,8 @@ part 12:
 
 part 14:
 1. question edit
+
+Final part:
+1. when no lead found on search, show create lead option
+2. Pay by cash beside stripe payment section
+3. pdf invoice or print link on single invoice page

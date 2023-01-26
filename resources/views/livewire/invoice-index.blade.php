@@ -22,7 +22,7 @@
                     <a href="">
                         @include('components.icons.edit')
                     </a>
-                    <a href="{{route('invoice-show', $invoice->id)}}" target="__blank" class="px-2">
+                    <a href="{{route('invoice-show', $invoice->id)}}" class="px-2">
                         @include('components.icons.eye')
                     </a>
                     <form onsubmit="return confirm('Are you sure?')" wire:submit.prevent="deleteInvoice({{$invoice->id}})" class="flex items-center">
