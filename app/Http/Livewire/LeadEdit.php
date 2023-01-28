@@ -5,6 +5,8 @@ namespace App\Http\Livewire;
 use App\Models\Lead;
 use App\Models\Note;
 use Livewire\Component;
+use App\Http\Livewire\NoteAdd;
+
 
 class LeadEdit extends Component
 {
@@ -50,14 +52,11 @@ class LeadEdit extends Component
         flash()->addSuccess('Lead Updated Successfully');
     }
 
-    public function addNewNote(){
-        dd('hello!');
-    }
-
     public function addNote(){
-//        $note = new Note();
-//        $note->description = $this->note;
-//        $note->save();
+        $this->validate([
+            'note' => 'required'
+        ]);
+
         $note = Note::create([
             'description' => $this->note
         ]);

@@ -16,25 +16,25 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                     @can('lead-management')
-                    <x-nav-link :href="route('lead.index')" :active="request()->routeIs('lead.index')">
+                    <x-nav-link :href="route('lead.index')" :active="request()->routeIs('lead*')">
                         {{ __('Leads') }}
                     </x-nav-link>
                     @endcan
 {{--                    @can('lead-management')--}}
-                        <x-nav-link :href="route('admission')" :active="request()->routeIs('admission')">
+                        <x-nav-link :href="route('admission')" :active="request()->routeIs('admission*')">
                             {{ __('Admission') }}
                         </x-nav-link>
 {{--                    @endcan--}}
-                    <x-nav-link :href="route('invoice-index')" :active="request()->routeIs('invoice-index')">
+                    <x-nav-link :href="route('invoice-index')" :active="request()->routeIs('invoice*')">
                         {{ __('Invoices') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('course.index')" :active="request()->routeIs('course.index')">
+                    <x-nav-link :href="route('course.index')" :active="request()->routeIs('course*')">
                         {{ __('Courses') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('question.index')" :active="request()->routeIs('question.index')">
+                    <x-nav-link :href="route('question.index')" :active="request()->routeIs('question*')">
                         {{ __('Questions') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('quiz.index')" :active="request()->routeIs('quiz.index')">
+                    <x-nav-link :href="route('quiz.index')" :active="request()->routeIs('quiz*')">
                         {{ __('Quiz') }}
                     </x-nav-link>
                 </div>

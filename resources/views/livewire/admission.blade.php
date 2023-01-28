@@ -16,7 +16,23 @@
             </div>
         @endif
 
-        @if(!empty($lead_id))
+        {{-- if no lead found, add show add lead button --}}
+        @if ($noLeadFound)
+            @if (!$addLead)
+                <p class="text-red-300">No Lead Found!</p>
+                <button wire:click="addNewLeadBtn" class="lms-button mt-2" type="button">Add new lead</button>
+            @endif
+            {{-- when user want to add lead, show add lead form --}}
+            @if ($addLead)
+                <div class="mt-4 flex gap-x-8">
+                    <input type="text" wire:model.lazy="lead_input_name" name="lead_input_name" placeholder="Lead Name" class="lms-input" required>
+                    <input type="email" wire:model.lazy="lead_input_email" name="lead_input_email" placeholder="Email"  class="lms-input" required>
+                    <input type="text" wire:model.lazy="lead_input_phone" name="lead_input_phone" placeholder="Phone"  class="lms-input" required>
+                </div>
+            @endif
+        @endif
+
+        @if(!empty($lead_id) || $addLead)
             <div class="mt-4 mb-4">
                 <select wire:change="courseSelected" wire:model="course_id" class="lms-input">
                     <option value="select option">Select Course</option>
@@ -32,7 +48,6 @@
             <div class="mb-4">
                 <input wire:model.lazy="payment" type="number" max="{{number_format($selectedCourse->price, 2)}}" step=".01" class="lms-input" placeholder="Pay Now">
             </div>
-
             @include('components.wire-loading-btn')
         @endif
     </form>

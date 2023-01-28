@@ -9,6 +9,12 @@ class Lead extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'email',
+        'phone'
+    ];
+
     public function notes(){
         return $this->belongsToMany(Note::class, 'lead_note');
     }

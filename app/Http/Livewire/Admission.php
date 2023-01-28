@@ -14,6 +14,11 @@ use Illuminate\Support\Str;
 class Admission extends Component
 {
     public $search;
+    public $noLeadFound;
+    public $addLead;
+    public $lead_input_name;
+    public $lead_input_email;
+    public $lead_input_phone;
     public $leads = [];
     public $lead_id;
     public $course_id;
@@ -33,6 +38,15 @@ class Admission extends Component
             ->orWhere('email', 'like', '%'.$this->search.'%')
             ->orWhere('phone', 'like', '%'.$this->search.'%')
             ->get();
+
+        $this->noLeadFound = false;
+        if(count($this->leads) === 0){
+            $this->noLeadFound = true;
+        }
+    }
+
+    public function addNewLeadBtn(){
+        $this->addLead = !$this->addLead;
     }
 
     public function courseSelected(){
@@ -40,7 +54,15 @@ class Admission extends Component
     }
 
     public function admit(){
-        $lead = Lead::findOrFail($this->lead_id);
+        if($this->lead_id){
+            $lead = Lead::findOrFail($this->lead_id);
+        }else{
+            $lead = Lead::create([
+                'name' => $this->lead_input_name,
+                'email' => $this->lead_input_email,
+                'phone' => $this->lead_input_phone
+            ]);
+        }
 
         $user = User::create([
             'name' => $lead->name,
@@ -76,6 +98,9 @@ class Admission extends Component
         $this->lead_id = '';
         $this->course_id = '';
         $this->selectedCourse = '';
+        $this->lead_input_name = '';
+        $this->lead_input_email = '';
+        $this->lead_input_phone = '';
 
         flash()->addSuccess('Admission Successful!');
     }

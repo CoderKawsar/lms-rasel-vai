@@ -15,11 +15,11 @@
                 <td class="border px-4 py-2">{{$lead->phone}}</td>
                 <td class="border px-4 py-2 text-center">{{date('F j, Y', strtotime($lead->created_at))}}</td>
                 <td class="border px-4 py-2 flex justify-center items-center">
-                    <a href="{{route('lead.edit', $lead->id)}}">
-                        @include('components.icons.edit')
-                    </a>
-                    <a href="{{route('lead.show', $lead->id)}}" class="px-2">
+                    <a href="{{route('lead.show', $lead->id)}}">
                         @include('components.icons.eye')
+                    </a>
+                    <a href="{{route('lead.edit', $lead->id)}}" class="px-2">
+                        @include('components.icons.edit')
                     </a>
                     <form onsubmit="return confirm('Are you sure?')" wire:submit.prevent="deleteLead({{$lead->id}})" class="flex items-center">
                         <button type="submit">

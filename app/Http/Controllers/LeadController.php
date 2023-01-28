@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Lead;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Role;
@@ -50,7 +51,10 @@ class LeadController extends Controller
      */
     public function show($id)
     {
-        //
+        $lead = Lead::findOrFail($id);
+        return view('lead.show', [
+            'lead' => $lead
+        ]);
     }
 
     /**
