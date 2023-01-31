@@ -7,10 +7,13 @@
             <a href="{{route('course.create')}}" class="lms-button">Add a Course</a>
         </div>
     </x-slot>
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <livewire:course-show :course="$course" />
+                <div class="p-6 text-gray-900">
+                    <livewire:course-edit :course="$course" />
+                </div>
             </div>
         </div>
     </div>

@@ -19,7 +19,7 @@
                 <td class="border px-4 py-2 text-center">${{$invoice->amount()['paid']}}</td>
                 <td class="border px-4 py-2 text-center">${{$invoice->amount()['due']}}</td>
                 <td class="border px-4 py-2 flex justify-center items-center">
-                    <a href="">
+                    <a href="{{route('invoice-show', $invoice->id)}}">
                         @include('components.icons.edit')
                     </a>
                     <a href="{{route('invoice-show', $invoice->id)}}" class="px-2">

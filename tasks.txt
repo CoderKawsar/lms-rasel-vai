@@ -1,15 +1,7 @@
 part 12:
 
-1. fix lead notes
-2. show single class(curriculum) with their corresponding notes
 3. show all students with action(present & absent) on single class show page.
-4. view, edit delete action on single class page with their curriculum
-5. show single invoice page
-
-part 14:
-1. question edit
 
 Final part:
-1. when no lead found on search, show create lead option
 2. Pay by cash beside stripe payment section
 3. pdf invoice or print link on single invoice page

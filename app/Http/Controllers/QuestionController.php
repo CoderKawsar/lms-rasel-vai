@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 class QuestionController extends Controller
 {
     public function index(){
@@ -16,5 +14,11 @@ class QuestionController extends Controller
 
     public function show(){
         return view('question.show');
+    }
+
+    public function edit($id){
+        return view('question.edit', [
+            'question_id' => $id
+        ]);
     }
 }

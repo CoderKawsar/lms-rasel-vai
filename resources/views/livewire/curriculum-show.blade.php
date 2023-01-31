@@ -45,11 +45,5 @@
         <p class="py-4 text-red-400">Not Found Any Note!</p>
     @endif
 
-    <h4 class="font-bold mb-2">Add new note</h4>
-    <form wire:submit.prevent="addNote">
-        <div class="mb-4">
-            <textarea wire:model="note" class="lms-input" placeholder="Type note"></textarea>
-        </div>
-        <button class="lms-button" type="submit">Save</button>
-    </form>
+    @livewire('add-note', ['attachmentModelType' => 'curriculum', 'modelId' => $curriculum->id])
 </div>

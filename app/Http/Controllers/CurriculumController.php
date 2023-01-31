@@ -12,4 +12,11 @@ class CurriculumController extends Controller
             'curriculum_id' => $id
         ]);
     }
+
+    public function edit($id){
+        $curriculum = Curriculum::findOrFail($id);
+        return view('curriculum.edit', [
+            'curriculum' => $curriculum
+        ]);
+    }
 }

@@ -46,7 +46,7 @@
             <p class="mb-4">Price: {{number_format($selectedCourse->price, 2)}} </p>
 
             <div class="mb-4">
-                <input wire:model.lazy="payment" type="number" max="{{number_format($selectedCourse->price, 2)}}" step=".01" class="lms-input" placeholder="Pay Now">
+                <input wire:model.lazy="payment" type="number" min="0" max="{{number_format($selectedCourse->price, 2)}}" step=".01" class="lms-input" placeholder="Pay Now">
             </div>
             @include('components.wire-loading-btn')
         @endif

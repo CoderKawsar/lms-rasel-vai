@@ -21,4 +21,11 @@ class CourseController extends Controller
             'course' => $course
         ]);
     }
+
+    public function edit($id){
+        $course = Course::findOrFail($id);
+        return view('course.edit', [
+            'course' => $course
+        ]);
+    }
 }

@@ -64,11 +64,17 @@ class Admission extends Component
             ]);
         }
 
-        $user = User::create([
-            'name' => $lead->name,
-            'email' => $lead->email,
-            'password' => Str::random(8)
-        ]);
+        // search if the lead user already exist
+        $user = User::where('email', '=', $lead->email)->get()->first();
+
+        if($user == null){
+            $user = User::create([
+                'name' => $lead->name,
+                'email' => $lead->email,
+                'password' => Str::random(8)
+            ]);
+        }
+
         $lead->delete();
 
         $invoice = Invoice::create([
