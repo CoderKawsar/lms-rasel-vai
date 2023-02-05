@@ -2,31 +2,31 @@
     <h2 class="font-bold text-xl mb-4">Information</h2>
     <p class="text-lg mb-2">Invoice to: <span class="font-semibold">{{$invoice->user->name}}</span></p>
     <table class="table-auto w-full mb-4">
-        <tr>
-            <th class="lms-cell-border text-left">Name</th>
-            <th class="lms-cell-border">Price</th>
-            <th class="lms-cell-border">Quantity</th>
-            <th class="lms-cell-border text-right">Total</th>
+        <tr style="border: 1px solid black">
+            <th style="border: 1px solid gray" class="lms-cell-border text-left">Name</th>
+            <th style="border: 1px solid gray" class="lms-cell-border">Price</th>
+            <th style="border: 1px solid gray" class="lms-cell-border">Quantity</th>
+            <th style="border: 1px solid gray" class="lms-cell-border text-right">Total</th>
         </tr>
         @foreach($invoice->items as $item)
         <tr>
-            <td class="lms-cell-border text-left">{{$item->name}}</td>
-            <td class="lms-cell-border text-center">${{number_format($item->price, 2)}}</td>
-            <td class="lms-cell-border text-center">{{$item->quantity}}</td>
-            <td class="lms-cell-border text-right">${{number_format($item->price * $item->quantity, 2)}}</td>
+            <td style="border: 1px solid gray" class="lms-cell-border text-left">{{$item->name}}</td>
+            <td style="border: 1px solid gray" class="lms-cell-border text-center">${{number_format($item->price, 2)}}</td>
+            <td style="border: 1px solid gray" class="lms-cell-border text-center">{{$item->quantity}}</td>
+            <td style="border: 1px solid gray" class="lms-cell-border text-right">${{number_format($item->price * $item->quantity, 2)}}</td>
         </tr>
         @endforeach
         <tr>
-            <td class="lms-cell-border text-right font-semibold" colspan="3">SubTotal</td>
-            <td class="lms-cell-border px-4 py-2 text-right">${{number_format($invoice->amount()['total'])}}</td>
+            <td style="border: 1px solid gray" class="lms-cell-border text-right font-semibold" colspan="3">SubTotal</td>
+            <td style="border: 1px solid gray" class="lms-cell-border px-4 py-2 text-right">${{number_format($invoice->amount()['total'])}}</td>
         </tr>
         <tr>
-            <td class="lms-cell-border text-right font-semibold" colspan="3">Paid</td>
-            <td class="lms-cell-border px-4 py-2 text-right">- ${{number_format($invoice->amount()['paid'])}}</td>
+            <td style="border: 1px solid gray" class="lms-cell-border text-right font-semibold" colspan="3">Paid</td>
+            <td style="border: 1px solid gray" class="lms-cell-border px-4 py-2 text-right">- ${{number_format($invoice->amount()['paid'])}}</td>
         </tr>
         <tr>
-            <td class="lms-cell-border text-right font-semibold" colspan="3">Due</td>
-            <td class="lms-cell-border px-4 py-2 text-right">${{number_format($invoice->amount()['due'])}}</td>
+            <td style="border: 1px solid gray" class="lms-cell-border text-right font-semibold" colspan="3">Due</td>
+            <td style="border: 1px solid gray" class="lms-cell-border px-4 py-2 text-right">${{number_format($invoice->amount()['due'])}}</td>
         </tr>
     </table>
     @if(!$addFormShow)

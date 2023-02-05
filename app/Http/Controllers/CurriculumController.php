@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Curriculum;
-use Illuminate\Http\Request;
 
 class CurriculumController extends Controller
 {
     public function show($id){
+        $curriculum = Curriculum::findOrFail($id);
         return view('curriculum.show', [
-            'curriculum_id' => $id
+            'curriculum' => $curriculum
         ]);
     }
 
@@ -19,4 +19,6 @@ class CurriculumController extends Controller
             'curriculum' => $curriculum
         ]);
     }
+
+
 }

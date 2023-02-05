@@ -28,7 +28,7 @@
                     <x-nav-link :href="route('invoice-index')" :active="request()->routeIs('invoice*')">
                         {{ __('Invoices') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('course.index')" :active="request()->routeIs('course*')">
+                    <x-nav-link :href="route('course.index')" :active="request()->routeIs(['course*', 'class*'])">
                         {{ __('Courses') }}
                     </x-nav-link>
                     <x-nav-link :href="route('question.index')" :active="request()->routeIs('question*')">

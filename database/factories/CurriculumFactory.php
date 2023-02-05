@@ -20,8 +20,7 @@ class CurriculumFactory extends Factory
             'name' => $this->faker->realText(25),
             'course_id' => 1,
             'week_day' => $this->faker->dayOfWeek,
-            'class_time' => $this->faker->time,
-            'end_date' => $this->faker->dateTimeBetween('now', '+2 years')->format('Y-m-d')
+            'class_time' => $this->faker->time
         ];
     }
 }

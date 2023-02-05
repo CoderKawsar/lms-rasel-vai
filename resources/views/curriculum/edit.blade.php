@@ -4,7 +4,7 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('Class') }}
             </h2>
-            <a href="{{route('class.create')}}" class="lms-button">Add a Class</a>
+            <a href="{{route('create-class', ['course_id' => $curriculum->course_id])}}" class="lms-button">Add a Class</a>
         </div>
     </x-slot>
     <div class="py-12">

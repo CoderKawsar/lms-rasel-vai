@@ -63,7 +63,6 @@ class CourseCreate extends Component
                             'name' => $this->name . '#'. $i++,
                             'week_day' => $selectedDay,
                             'class_time' => $this->time,
-                            'end_date' => $this->end_date,
                             'course_id' => $course->id
                         ]);
                     }

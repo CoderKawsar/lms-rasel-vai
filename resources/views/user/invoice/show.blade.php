@@ -4,6 +4,7 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('Invoice') }}
             </h2>
+            <button id="print-button" class="lms-button">Print Invoice</button>
         </div>
     </x-slot>
 
@@ -11,7 +12,9 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <livewire:invoice-edit :invoice_id="$invoice->id" />
+                    <div id="print-area">
+                        <livewire:invoice-edit :invoice_id="$invoice->id" />
+                    </div>
                     @if($invoice->amount()['due'] > 0)
                     <h2 class="font-bold mb-2">Add a payment</h2>
                     <form method="POST" action="{{route('stripe-payment')}}">@csrf
@@ -39,3 +42,15 @@
         </div>
     </div>
 </x-app-layout>
+
+<script>
+    document.getElementById('print-button').addEventListener('click', function(){
+        var printArea = document.getElementById("print-area");
+        var printWindow = window.open();
+        printWindow.document.write(printArea.innerHTML);
+        printWindow.document.close();
+        printWindow.focus();
+        printWindow.print();
+        // printWindow.close();
+    })
+</script>

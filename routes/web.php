@@ -6,6 +6,7 @@ use \App\Http\Controllers\LeadController;
 use \App\Http\Controllers\UserController;
 use \App\Http\Controllers\RoleController;
 use \App\Http\Controllers\AdmissionController;
+use App\Http\Controllers\ClassCreate;
 use \App\Http\Controllers\InvoiceController;
 use \App\Http\Controllers\CourseController;
 use \App\Http\Controllers\CurriculumController;
@@ -44,9 +45,13 @@ Route::middleware('auth')->group(function () {
 
     Route::get('invoices', [InvoiceController::class, 'index'])->name('invoice-index');
     Route::get('invoices/{id}', [InvoiceController::class, 'show'])->name('invoice-show');
+    Route::get('invoices/edit/{id}', [InvoiceController::class, 'edit'])->name('invoice-edit');
+    Route::get('invoices/pdf/{id}', [InvoiceController::class, 'genereatePDF'])->name('invoice-pdf');
 
     Route::resource('course', CourseController::class);
     Route::resource('class', CurriculumController::class);
+    Route::get('class/make/{course_id}', [ClassCreate::class, 'createClass'])->name('create-class');
+
 
     Route::resource('question', QuestionController::class);
     Route::resource('quiz', QuizController::class);

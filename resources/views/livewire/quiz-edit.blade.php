@@ -1,8 +1,8 @@
 <div>
     <h2 class="font-bold mb-2 text-lg">Questions</h2>
-    <ul class="list-disc mb-2">
+    <ul class="mb-2">
         @foreach($quiz->questions as $question)
-            <li>{{$question->name}}</li>
+            <li class="border px-4 py-2 mb-2">{{$question->name}}</li>
         @endforeach
     </ul>
 

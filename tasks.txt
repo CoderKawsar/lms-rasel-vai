@@ -1,7 +1,3 @@
-part 12:
-
-3. show all students with action(present & absent) on single class show page.
-
 Final part:
 2. Pay by cash beside stripe payment section
 3. pdf invoice or print link on single invoice page
